@@ -66,7 +66,7 @@ jobs:
 
       - name: Commit and push if changes
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
+          git config --global user.name 'xu756'
+          git config --global user.email '756334744@qq.com'
           git add -A
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto update by GitHub Actions at $(TZ=Asia/Shanghai date)" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "自动更新at $(TZ=Asia/Shanghai date)" && git push)
