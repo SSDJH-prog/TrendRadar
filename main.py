@@ -171,9 +171,9 @@ def load_config():
     # ntfy配置
     config["NTFY_SERVER_URL"] = os.environ.get(
         "NTFY_SERVER_URL", "https://ntfy.imlogic.cn"
-    ).strip() or webhooks.get("ntfy_server_url", "https://ntfy.imlogic.cnh")
+    ).strip() or webhooks.get("ntfy_server_url", "https://ntfy.imlogic.cn")
     config["NTFY_TOPIC"] = os.environ.get("NTFY_TOPIC", "").strip() or webhooks.get(
-        "ntfy_topic", ""
+        "ntfy_topic", "trendradar"
     )
     config["NTFY_TOKEN"] = os.environ.get("NTFY_TOKEN", "").strip() or webhooks.get(
         "ntfy_token", ""
