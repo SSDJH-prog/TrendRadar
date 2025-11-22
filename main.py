@@ -175,10 +175,10 @@ def load_config():
 
     # ntfy配置
     config["NTFY_SERVER_URL"] = os.environ.get(
-        "NTFY_SERVER_URL", "https://ntfy.sh"
-    ).strip() or webhooks.get("ntfy_server_url", "https://ntfy.sh")
+        "NTFY_SERVER_URL", "https://ntfy.imlogic.cn"
+    ).strip() or webhooks.get("ntfy_server_url", "https://ntfy.imlogic.cn")
     config["NTFY_TOPIC"] = os.environ.get("NTFY_TOPIC", "").strip() or webhooks.get(
-        "ntfy_topic", ""
+        "ntfy_topic", "trendradar"
     )
     config["NTFY_TOKEN"] = os.environ.get("NTFY_TOKEN", "").strip() or webhooks.get(
         "ntfy_token", ""
@@ -949,10 +949,16 @@ def matches_word_groups(
     title: str, word_groups: List[Dict], filter_words: List[str]
 ) -> bool:
     """检查标题是否匹配词组规则"""
+       # 如果标题为空，则不匹配
+    if not title:
+        return False
+    # 如果title不是字符串，则不匹配
+    if not isinstance(title, str):
+        print(title)
+        return False
     # 如果没有配置词组，则匹配所有标题（支持显示全部新闻）
     if not word_groups:
         return True
-
     title_lower = title.lower()
 
     # 过滤词检查
